@@ -2,9 +2,9 @@
 
 namespace Wi.TenPinBowling.Scoreboard.Services
 {
-    public interface IGameGovernor
+    public interface IGameGovernorService
     {
-        GameState CurrentGame { get; }
+        Game CurrentGame { get; }
 
         void EndGame();
         void MoveToNextFrame();

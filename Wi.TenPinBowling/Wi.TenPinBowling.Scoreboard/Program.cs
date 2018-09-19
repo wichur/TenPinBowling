@@ -10,11 +10,14 @@ namespace Wi.TenPinBowling.Scoreboard
         {
             var services = new ServiceCollection();
 
-            services.AddTransient<IGameGovernor, GameGovernor>();
+            services.AddTransient<IGameGovernorService, GameGovernorService>();
+            services.AddTransient<IGameService, GameService>();
+            services.AddTransient<IPlayerService, PlayerService>();
+            services.AddTransient<IFrameService, FrameService>();
 
             var provider = services.BuildServiceProvider();
 
-            var gg = provider.GetService<IGameGovernor>();
+            var gg = provider.GetService<IGameGovernorService>();
 
             gg.StartNewGame(2);
 

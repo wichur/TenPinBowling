@@ -12,7 +12,7 @@ namespace Wi.TenPinBowling.Scoreboard.Tests
         [TestMethod]
         public void PlayerState_CurrentFrame_Valid()
         {
-            var sut = new PlayerState();
+            var sut = new Player();
 
             sut.Frames = new List<Frame>
             {
@@ -32,7 +32,7 @@ namespace Wi.TenPinBowling.Scoreboard.Tests
         [TestMethod]
         public void PlayerState_CurrentFrame_Null()
         {
-            var sut = new PlayerState();
+            var sut = new Player();
 
             Assert.IsNull(sut.CurrentFrame);
         }
@@ -40,7 +40,7 @@ namespace Wi.TenPinBowling.Scoreboard.Tests
         [TestMethod]
         public void PlayerState_GutterGame_True()
         {
-            var sut = new PlayerState();
+            var sut = new Player();
 
             Assert.IsTrue(sut.GutterGame);
         }
@@ -48,7 +48,7 @@ namespace Wi.TenPinBowling.Scoreboard.Tests
         [TestMethod]
         public void PlayerState_PerfectGame_True()
         {
-            var sut = new PlayerState();
+            var sut = new Player();
 
             for (int i = 0; i < StaticRules.MaxFrames; i++)
             {

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Wi.TenPinBowling.Scoreboard.Model
 {
-    public class PlayerState
+    public class Player
     {
         public int PlayerNumber { get; set; }
 
@@ -31,7 +31,7 @@ namespace Wi.TenPinBowling.Scoreboard.Model
             }
         }
 
-        public PlayerState()
+        public Player()
         {
             this.Frames = new List<Frame>();
         }
