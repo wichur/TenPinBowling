@@ -11,6 +11,6 @@ namespace Wi.TenPinBowling.Scoreboard.Model
 
         public int PinsKockedDown { get; set; }
 
-        public bool IsStrike => this.RollNumber == 0 && PinsKockedDown == StaticRules.PinsPerFrame;
+        public bool IsStrike => PinsKockedDown == StaticRules.PinsPerFrame;
     }
 }

@@ -16,7 +16,7 @@ namespace Wi.TenPinBowling.Scoreboard.Model
 
         public bool IsStrike => this.Rolls.Any(p => p.IsStrike);
 
-        public bool IsSpare => this.Rolls.Sum(p => p.PinsKockedDown) == StaticRules.PinsPerFrame;
+        public bool IsSpare => this.Rolls.Sum(p => p.PinsKockedDown) == StaticRules.PinsPerFrame && !IsStrike;
 
         public bool IsLast => this.FrameNumber == (StaticRules.MaxFrames - 1);
 

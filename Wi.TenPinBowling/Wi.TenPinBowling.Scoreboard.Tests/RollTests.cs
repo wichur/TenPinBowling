@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Wi.TenPinBowling.Scoreboard.Model;
+using Wi.TenPinBowling.Scoreboard.Rules;
 
 namespace Wi.TenPinBowling.Scoreboard.Tests
 {
@@ -11,7 +12,7 @@ namespace Wi.TenPinBowling.Scoreboard.Tests
         {
             var sut = new Roll();
 
-            sut.PinsKockedDown = 10;
+            sut.PinsKockedDown = StaticRules.PinsPerFrame;
 
             Assert.IsTrue(sut.IsStrike);
         }
