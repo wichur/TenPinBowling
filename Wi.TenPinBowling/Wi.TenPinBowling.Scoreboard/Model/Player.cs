@@ -10,18 +10,13 @@ namespace Wi.TenPinBowling.Scoreboard.Model
         public int PlayerNumber { get; set; }
 
         public IList<Frame> Frames { get; set; }
-
         public Frame CurrentFrame => this.Frames.OrderBy(o => o.FrameNumber).LastOrDefault();
 
-        public bool GutterGame
-        {
-            get
-            {
-                return this.Frames.Sum(p => p.PinsKnockedDown) == 0;
-            }
-        }
+        public int TotalPoints => this.Frames.Sum(p => p.TotalPoints);
 
-        public bool PerfectGame
+        public bool IsGutterGame => this.Frames.Sum(p => p.PinsKnockedDown) == 0;
+
+        public bool IsPerfectGame
         {
             get
             {

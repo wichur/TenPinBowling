@@ -42,7 +42,7 @@ namespace Wi.TenPinBowling.Scoreboard.Tests
         {
             var sut = new Player();
 
-            Assert.IsTrue(sut.GutterGame);
+            Assert.IsTrue(sut.IsGutterGame);
         }
 
         [TestMethod]
@@ -73,7 +73,7 @@ namespace Wi.TenPinBowling.Scoreboard.Tests
                 RollNumber = 2,
                 PinsKockedDown = StaticRules.PinsPerFrame
             });
-            Assert.IsTrue(sut.PerfectGame);
+            Assert.IsTrue(sut.IsPerfectGame);
         }
     }
 }

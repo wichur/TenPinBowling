@@ -12,14 +12,20 @@ namespace Wi.TenPinBowling.Scoreboard.Services
         private readonly IGameService gameService;
         private readonly IPlayerService playerService;
         private readonly IFrameService frameService;
+        private readonly IScoreService scoreService;
 
         public Game CurrentGame { get; private set; }
 
-        public GameGovernorService(IGameService gameService, IPlayerService playerService, IFrameService frameService)
+        public GameGovernorService(
+            IGameService gameService, 
+            IPlayerService playerService, 
+            IFrameService frameService, 
+            IScoreService scoreService)
         {
             this.gameService = gameService;
             this.playerService = playerService;
             this.frameService = frameService;
+            this.scoreService = scoreService;
         }
 
         public void StartNewGame(int numberOfPlayers)
@@ -57,6 +63,8 @@ namespace Wi.TenPinBowling.Scoreboard.Services
         public void StoreRollOutcome(int pinsKnockedDown)
         {
             this.frameService.StoreRollOutcome(this.CurrentGame.CurrentPlayer.CurrentFrame, pinsKnockedDown);
+
+            this.scoreService.ProcessPlayerPoints(this.CurrentGame.CurrentPlayer);
         }
     }
 }

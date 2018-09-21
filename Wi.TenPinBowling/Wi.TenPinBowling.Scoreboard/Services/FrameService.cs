@@ -28,8 +28,7 @@ namespace Wi.TenPinBowling.Scoreboard.Services
 
             /// TODO Refactor this
 
-            if (currentFrame.IsLast && currentFrame.PinsKnockedDown == StaticRules.PinsPerFrame &&
-                currentFrame.Rolls.Count() < StaticRules.LastFrameMaxRolls)
+            if (currentFrame.IsLast && currentFrame.Rolls.Count() < StaticRules.LastFrameMaxRolls)
             {
                 currentFrame.Rolls.Add(roll);
                 return;
@@ -49,13 +48,25 @@ namespace Wi.TenPinBowling.Scoreboard.Services
                 throw new ArgumentException($"Player can knock down only from 0 to {StaticRules.PinsPerFrame} pins in one Roll");
             }
 
-            var pinsLeftStanding = StaticRules.PinsPerFrame - currentFrame.PinsKnockedDown;
+            var pinsLeftStanding = 10;
+            
+            if (!currentFrame.IsLast)
+            {
+                pinsLeftStanding = StaticRules.PinsPerFrame - currentFrame.PinsKnockedDown;
+            }
+            else
+            {
+                currentFrame.CurrentRoll.PinsKockedDown = 0;
+                currentFrame.StrikePoints = pinsKnockedDown;
+            }
+            
             if (pinsKnockedDown > pinsLeftStanding)
             {
                 throw new ArgumentException($"Player cannot knock down more than {pinsLeftStanding} of standing pins");
             }
 
             currentFrame.CurrentRoll.PinsKockedDown = pinsKnockedDown;
+
         }
     }
 }

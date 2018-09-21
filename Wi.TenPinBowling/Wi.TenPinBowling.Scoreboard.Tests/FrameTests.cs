@@ -24,6 +24,8 @@ namespace Wi.TenPinBowling.Scoreboard.Tests
             };
 
             Assert.IsTrue(sut.IsStrike);
+            Assert.IsFalse(sut.IsSpare);
+            Assert.IsFalse(sut.IsLast);
         }
 
         [TestMethod]
@@ -85,6 +87,8 @@ namespace Wi.TenPinBowling.Scoreboard.Tests
             };
 
             Assert.IsTrue(sut.IsSpare);
+            Assert.IsFalse(sut.IsStrike);
+            Assert.IsFalse(sut.IsLast);
         }
 
         [TestMethod]
