@@ -26,6 +26,11 @@ namespace Wi.TenPinBowling.Scoreboard.Services
                 throw new Exception($"Each player can have only {StaticRules.LastFrameMaxRolls} rolls in last frame");
             }
 
+            if(currentFrame.IsLast && !currentFrame.IsSpare && !currentFrame.IsStrike && currentFrame.Rolls.Count() == StaticRules.LastFrameMaxRolls-1)
+            {
+                throw new Exception($"In last frame 3rd roll is allowed only if there is a Strike or Spare in two previous rolls");
+            }
+
             /// TODO Refactor this
 
             if (currentFrame.IsLast && currentFrame.Rolls.Count() < StaticRules.LastFrameMaxRolls)
@@ -57,7 +62,6 @@ namespace Wi.TenPinBowling.Scoreboard.Services
             else
             {
                 currentFrame.CurrentRoll.PinsKockedDown = 0;
-                currentFrame.StrikePoints = pinsKnockedDown;
             }
             
             if (pinsKnockedDown > pinsLeftStanding)
