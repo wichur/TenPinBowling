@@ -5,7 +5,7 @@ using Wi.TenPinBowling.Scoreboard.Rules;
 namespace Wi.TenPinBowling.Scoreboard.Tests
 {
     [TestClass]
-    public class RollTests
+    public class RollUnitTests
     {
         [TestMethod]
         public void Roll_IsStrike_True()

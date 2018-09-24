@@ -7,7 +7,7 @@ using Wi.TenPinBowling.Scoreboard.Rules;
 namespace Wi.TenPinBowling.Scoreboard.Tests
 {
     [TestClass]
-    public class FrameTests
+    public class FrameUnitTests
     {
         [TestMethod]
         public void Frame_IsStrike_True()

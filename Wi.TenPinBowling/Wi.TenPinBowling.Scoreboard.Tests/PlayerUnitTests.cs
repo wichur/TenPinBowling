@@ -7,7 +7,7 @@ using Wi.TenPinBowling.Scoreboard.Rules;
 namespace Wi.TenPinBowling.Scoreboard.Tests
 {
     [TestClass]
-    public class PlayerStateTests
+    public class PlayerUnitTests
     {
         [TestMethod]
         public void PlayerState_CurrentFrame_Valid()

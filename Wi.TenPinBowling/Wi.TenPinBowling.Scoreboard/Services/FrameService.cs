@@ -9,6 +9,7 @@ namespace Wi.TenPinBowling.Scoreboard.Services
 {
     public class FrameService : IFrameService
     {
+        /// TODO Refactor
         public void MoveToNextRoll(Frame currentFrame)
         {
             var roll = new Roll
@@ -29,9 +30,7 @@ namespace Wi.TenPinBowling.Scoreboard.Services
             if(currentFrame.IsLast && !currentFrame.IsSpare && !currentFrame.IsStrike && currentFrame.Rolls.Count() == StaticRules.LastFrameMaxRolls-1)
             {
                 throw new Exception($"In last frame 3rd roll is allowed only if there is a Strike or Spare in two previous rolls");
-            }
-
-            /// TODO Refactor this
+            }            
 
             if (currentFrame.IsLast && currentFrame.Rolls.Count() < StaticRules.LastFrameMaxRolls)
             {
@@ -46,6 +45,7 @@ namespace Wi.TenPinBowling.Scoreboard.Services
             }
         }
 
+        /// TODO Refactor
         public void StoreRollOutcome(Frame currentFrame, int pinsKnockedDown)
         {
             if (pinsKnockedDown < 0 || pinsKnockedDown > StaticRules.PinsPerFrame)
@@ -53,7 +53,7 @@ namespace Wi.TenPinBowling.Scoreboard.Services
                 throw new ArgumentException($"Player can knock down only from 0 to {StaticRules.PinsPerFrame} pins in one Roll");
             }
 
-            var pinsLeftStanding = 10;
+            var pinsLeftStanding = StaticRules.PinsPerFrame;
             
             if (!currentFrame.IsLast)
             {

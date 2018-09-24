@@ -18,6 +18,8 @@ namespace Wi.TenPinBowling.Scoreboard
 
             var provider = services.BuildServiceProvider();
 
+            /// See test project GameIntegrationTests.cs for more examples 
+
             var gg = provider.GetService<IGameGovernorService>();
 
             gg.StartNewGame(1);
